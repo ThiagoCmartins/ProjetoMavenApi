@@ -5,10 +5,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import com.controller.test;
 import com.get.set.Endereco;
 import com.google.gson.Gson;
-import com.controller.test;
 
 public class JavaClient2 {
 	
