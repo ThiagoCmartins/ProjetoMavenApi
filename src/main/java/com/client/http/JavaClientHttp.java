@@ -1,12 +1,12 @@
 package com.client.http;
 
 import java.io.IOException;
+
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import com.google.gson.Gson;
-import com.get.set.GetAndSet;
+import com.get.set.Endereco;
 
 public class JavaClientHttp {
 	
@@ -36,7 +36,6 @@ public class JavaClientHttp {
 		System.out.println("-------------------------");
 		System.out.println("response body:"+response.body());
 		
-		Gson gson = new Gson();
 		
 	}
 }

@@ -1,6 +1,6 @@
 package com.get.set;
 
-public class GetAndSet {
+public class Endereco {
 	
 	private String cep;
 	private String logradouro;
