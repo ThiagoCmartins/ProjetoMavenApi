@@ -9,21 +9,21 @@ import com.get.set.Endereco;
 import com.google.gson.Gson;
 
 public class JavaClientHttp {
-	
-	public static void main(String[] args) throws Exception {newEndereco();}
-	
-	static String API_URL = "https://viacep.com.br/ws/01001000/json/";
+
+	static String API_URL = "https://viacep.com.br/ws/";
     static int ok = 200;
 	
-	public static Endereco newEndereco()throws Exception{
+	public static Endereco newEndereco(String cep)throws Exception{
 		
 		try {
+			
+			String Chamada = API_URL + cep + "/json";
 		
 			HttpClient client = HttpClient.newHttpClient();
 			
 			HttpRequest request = HttpRequest.newBuilder()
 					.GET()
-					.uri(URI.create(API_URL))
+					.uri(URI.create(Chamada))
 					.build();
 			
 			HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());

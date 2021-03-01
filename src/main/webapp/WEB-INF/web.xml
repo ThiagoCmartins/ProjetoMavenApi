@@ -12,36 +12,6 @@
   </welcome-file-list>
   <servlet>
     <description></description>
-    <display-name>Controller</display-name>
-    <servlet-name>Controller</servlet-name>
-    <servlet-class>com.controller.Controller</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Controller</servlet-name>
-    <url-pattern>/Controller</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>HttpServlet</display-name>
-    <servlet-name>HttpServlet</servlet-name>
-    <servlet-class>javax.servlet.http.HttpServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>HttpServlet</servlet-name>
-    <url-pattern>/HttpServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>GenericServlet</display-name>
-    <servlet-name>GenericServlet</servlet-name>
-    <servlet-class>javax.servlet.GenericServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>GenericServlet</servlet-name>
-    <url-pattern>/GenericServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>controller</display-name>
     <servlet-name>controller</servlet-name>
     <servlet-class>com.controller.controller</servlet-class>
