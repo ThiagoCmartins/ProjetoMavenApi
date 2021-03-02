@@ -8,12 +8,14 @@ import java.net.http.HttpResponse;
 import com.get.set.Endereco;
 import com.google.gson.Gson;
 
-public class JavaClientHttp {
-
+public class JavaReqResHttp {
+	
+	//public static void main(String[] args) throws Exception {String cep = "01001000"; newResponse(cep); convertGson(cep);}
+	
 	static String API_URL = "https://viacep.com.br/ws/";
 	static int ok = 200;
 	
-	public static Endereco newEndereco(String cep)throws Exception{
+	public static HttpResponse<String> newResponse(String cep) throws Exception {
 		
 		try {
 			
@@ -30,30 +32,41 @@ public class JavaClientHttp {
 			
 			if (response.statusCode() != ok) {
 				throw new RuntimeException("HTTP error code : " + response.statusCode());
-			}
+				}
 			
-			Gson gson = new Gson();
-	        Endereco enderecos = gson.fromJson(response.body(), Endereco.class);
-			
+			System.out.println("-------------------------");
 			System.out.println("client: "+client);
 			System.out.println("-------------------------");
 			
 			System.out.println("request: "+request);
 			System.out.println("-------------------------");
 			
+			System.out.println("response: "+ response);
 			System.out.println("Conexão Status: "+response.statusCode());
 			
-			System.out.println("response: "+ response);
 			System.out.println("-------------------------");
 			System.out.println("response body:"+response.body());
-	        
-	        System.out.println("-------------------------");
-			System.out.println("enderecos: "+enderecos);
-		
-		return enderecos;
-		
+			
+			return response;
+			
 		}catch (Exception e) {
 	        throw new Exception("ERRO: " + e);
 	    }
+	}
+	
+	public static Endereco convertGson(String cep) throws Exception{
+		
+		Gson gson = new Gson();		
+		HttpResponse<String> res;
+		
+		res = JavaReqResHttp.newResponse(cep);
+						
+		Endereco enderecos = gson.fromJson(res.body() , Endereco.class);
+		
+		System.out.println("-------------------------");
+		System.out.println("enderecos: "+enderecos);
+		        
+		return enderecos;	
+			
 	}
 }
