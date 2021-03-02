@@ -1,11 +1,15 @@
 package com.java.test;
 
+import static org.junit.Assert.assertTrue;
+import com.client.http.JavaClientHttp;
+import com.get.set.Endereco;
+
+import org.junit.Test;
+
 public class testjava {
 
-	public testjava() {
-
-	}
-
-	public static void main(String[] args) {
+	@Test
+	public void primeiroTeste() throws Exception {
+		assertTrue(true);
 	}
 }

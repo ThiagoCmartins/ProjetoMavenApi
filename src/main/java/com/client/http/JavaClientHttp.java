@@ -11,7 +11,7 @@ import com.google.gson.Gson;
 public class JavaClientHttp {
 
 	static String API_URL = "https://viacep.com.br/ws/";
-    static int ok = 200;
+	static int ok = 200;
 	
 	public static Endereco newEndereco(String cep)throws Exception{
 		
@@ -41,7 +41,7 @@ public class JavaClientHttp {
 			System.out.println("request: "+request);
 			System.out.println("-------------------------");
 			
-			System.out.println("Conex„o Status: "+response.statusCode());
+			System.out.println("Conex√£o Status: "+response.statusCode());
 			
 			System.out.println("response: "+ response);
 			System.out.println("-------------------------");
