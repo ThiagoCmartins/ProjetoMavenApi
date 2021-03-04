@@ -5,12 +5,10 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-import com.get.set.Endereco;
+import com.getset.Endereco;
 import com.google.gson.Gson;
 
-public class JavaReqResHttp {
-	
-	//public static void main(String[] args) throws Exception {String cep = "01001000"; newResponse(cep); convertGson(cep);}
+public class JavaReqResHttp {	
 	
 	static String API_URL = "https://viacep.com.br/ws/";
 	static int ok = 200;

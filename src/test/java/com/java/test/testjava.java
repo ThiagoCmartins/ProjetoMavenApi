@@ -6,7 +6,7 @@ import java.net.http.HttpResponse;
 import org.junit.Test;
 
 import com.client.http.JavaReqResHttp;
-import com.get.set.Endereco;
+import com.getset.Endereco;
 
 public class testjava {
 	

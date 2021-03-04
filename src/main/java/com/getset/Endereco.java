@@ -1,4 +1,4 @@
-package com.get.set;
+package com.getset;
 
 public class Endereco {
 	
@@ -35,6 +35,14 @@ public class Endereco {
 	
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
+	}
+	
+	public String getlocalidade() {
+		return localidade;
+	}
+	
+	public void serlocalidade(String localidade) {
+		this.localidade = localidade;
 	}
 	
 	public String getUf() {

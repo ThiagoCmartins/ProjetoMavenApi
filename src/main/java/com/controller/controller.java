@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.client.http.JavaReqResHttp;
-import com.get.set.Endereco;
+import com.getset.Endereco;
 
-@WebServlet(name = "controller?cep=&CEP=buscar", urlPatterns = {"/controller?cep=&CEP=buscar"})
+@WebServlet(name = "controller", urlPatterns = {"/controller"})
 public class controller extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
@@ -35,9 +35,10 @@ public class controller extends HttpServlet {
 	        	     	
 	        	out.println("<!DOCTYPE html>");
 	            out.println("<html><head>");
-	            out.println("<title>Maven api</title>");            
-	            out.println("</head>");
-	            out.println("<body>");
+	            out.println("<title>Maven API</title>");            
+	            out.println("</head><body>");
+	            
+	            out.println("<h3>Digite um CEP</h3>");
 	            
 	            out.println("<form name=\"Ceps\" method=\"get\" action=\"controller\">");
 	            out.println("<input type=\"text\" name=\"cep\" />");
@@ -49,11 +50,10 @@ public class controller extends HttpServlet {
 	            json = res.body();
 	            gson = JavaReqResHttp.convertGson(cep);
 	            
-	            if (cep != null) { 
-		            out.println("<h4> Request: " + res  + "</h4>");
-		            out.println("<h4> Response: " + json + "</h4>");
-		            out.println("<h4> Convert: " + gson + "</h4>");
-	            }
+	            out.println("<h4> Request: " + res  + "</h4>");
+		        out.println("<h4> Response: " + json + "</h4>");
+		        out.println("<h4> Convert: " + gson + "</h4>");
+		        
 	            out.println("</body></html>");
       
         }} catch (Exception e) {
