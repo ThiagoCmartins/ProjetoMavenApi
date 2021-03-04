@@ -50,7 +50,7 @@ public class JavaReqResHttp {
 			return response;
 			
 		}catch (Exception e) {
-	        throw new Exception("ERRO: " + e);
+	        throw new Exception("ERRO [newResponse]: " + e);
 	    }
 	}
 	
@@ -59,6 +59,8 @@ public class JavaReqResHttp {
 		Gson gson = new Gson();		
 		HttpResponse<String> res;
 		
+		try {
+		
 		res = JavaReqResHttp.newResponse(cep);
 						
 		Endereco enderecos = gson.fromJson(res.body() , Endereco.class);
@@ -66,7 +68,11 @@ public class JavaReqResHttp {
 		System.out.println("-------------------------");
 		System.out.println("enderecos: "+enderecos);
 		        
-		return enderecos;	
+		return enderecos;
+		
+		}catch(Exception e) {
+			throw new Exception("ERRO [convertGson]: " + e);
+		}
 			
 	}
 }
