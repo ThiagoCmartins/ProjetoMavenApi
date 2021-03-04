@@ -61,8 +61,7 @@ public class JavaReqResHttp {
 		
 		try {
 		
-		res = JavaReqResHttp.newResponse(cep);
-						
+		res = JavaReqResHttp.newResponse(cep);			
 		Endereco enderecos = gson.fromJson(res.body() , Endereco.class);
 		
 		System.out.println("-------------------------");

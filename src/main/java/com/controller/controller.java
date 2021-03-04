@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.client.http.JavaReqResHttp;
 import com.get.set.Endereco;
 
-@WebServlet(name = "controller", urlPatterns = {"/controller"})
+@WebServlet(name = "controller?cep=&CEP=buscar", urlPatterns = {"/controller?cep=&CEP=buscar"})
 public class controller extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
@@ -24,12 +24,12 @@ public class controller extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         
-        String cep = "01001000";
+        String cep;
         
         try {
-	        	HttpResponse<String> res = JavaReqResHttp.newResponse(cep);
-	        	String json = res.body();
-	        	Endereco gson = JavaReqResHttp.convertGson(cep);
+	        	HttpResponse<String> res;
+	        	String json;
+	        	Endereco gson;
         	
 	        try (PrintWriter out = response.getWriter()) {
 	        	     	
@@ -38,9 +38,22 @@ public class controller extends HttpServlet {
 	            out.println("<title>Maven api</title>");            
 	            out.println("</head>");
 	            out.println("<body>");
-	            out.println("<h4> Request: " + res + "</h4>");
-	            out.println("<h4> Response: " + json + "</h4>");
-	            out.println("<h4> Convert: " + gson + "</h4>");
+	            
+	            out.println("<form name=\"Ceps\" method=\"get\" action=\"controller\">");
+	            out.println("<input type=\"text\" name=\"cep\" />");
+	            out.println("<input type=\"submit\" name=\"CEP\" value=\"buscar\"/>");
+	            out.println("</form>");
+	            
+	            cep = request.getParameter("cep");
+	            res = JavaReqResHttp.newResponse(cep);
+	            json = res.body();
+	            gson = JavaReqResHttp.convertGson(cep);
+	            
+	            if (cep != null) { 
+		            out.println("<h4> Request: " + res  + "</h4>");
+		            out.println("<h4> Response: " + json + "</h4>");
+		            out.println("<h4> Convert: " + gson + "</h4>");
+	            }
 	            out.println("</body></html>");
       
         }} catch (Exception e) {
