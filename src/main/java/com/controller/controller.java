@@ -27,9 +27,10 @@ public class controller extends HttpServlet {
         String cep;
         
         try {
-	        	HttpResponse<String> res;
-	        	String json;
-	        	Endereco gson;
+        		
+            String json;
+            HttpResponse<String> res;
+        	Endereco gson;
         	
 	        try (PrintWriter out = response.getWriter()) {
 	        	     	
@@ -37,8 +38,8 @@ public class controller extends HttpServlet {
 	            out.println("<html><head>");
 	            out.println("<title>Maven API</title>");            
 	            out.println("</head><body>"); 
-	            
-	            cep = request.getParameter("cep");
+	              
+	        	cep = request.getParameter("cep");
 	            res = JavaReqResHttp.newResponse(cep);
 	            json = res.body();
 	            gson = JavaReqResHttp.convertGson(cep);
@@ -53,11 +54,4 @@ public class controller extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-		response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
-
-}}
+}
