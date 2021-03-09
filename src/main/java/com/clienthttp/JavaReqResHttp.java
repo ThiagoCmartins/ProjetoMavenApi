@@ -1,4 +1,4 @@
-package com.client.http;
+package com.clienthttp;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -36,15 +36,6 @@ public class JavaReqResHttp {
 			System.out.println("client: "+client);
 			System.out.println("-------------------------");
 			
-			System.out.println("request: "+request);
-			System.out.println("-------------------------");
-			
-			System.out.println("response: "+ response);
-			System.out.println("Conexão Status: "+response.statusCode());
-			
-			System.out.println("-------------------------");
-			System.out.println("response body:"+response.body());
-			
 			return response;
 			
 		}catch (Exception e) {
@@ -61,6 +52,12 @@ public class JavaReqResHttp {
 		
 		res = JavaReqResHttp.newResponse(cep);			
 		Endereco enderecos = gson.fromJson(res.body() , Endereco.class);
+		
+		System.out.println("request: "+ res);
+		System.out.println("Conexão Status: "+res.statusCode());
+		
+		System.out.println("-------------------------");
+		System.out.println("response body:"+res.body());
 		
 		System.out.println("-------------------------");
 		System.out.println("enderecos: "+enderecos);

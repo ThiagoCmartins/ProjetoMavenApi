@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import java.net.http.HttpResponse;
 import org.junit.Test;
 
-import com.client.http.JavaReqResHttp;
+import com.clienthttp.JavaReqResHttp;
 import com.getset.Endereco;
 
 public class testjava {

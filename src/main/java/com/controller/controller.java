@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.client.http.JavaReqResHttp;
+import com.clienthttp.JavaReqResHttp;
 import com.getset.Endereco;
 
 @WebServlet(name = "controller", urlPatterns = {"/controller"})
@@ -36,14 +36,7 @@ public class controller extends HttpServlet {
 	        	out.println("<!DOCTYPE html>");
 	            out.println("<html><head>");
 	            out.println("<title>Maven API</title>");            
-	            out.println("</head><body>");
-	            
-	            out.println("<h3>Digite um CEP</h3>");
-	            
-	            out.println("<form name=\"Ceps\" method=\"get\" action=\"controller\">");
-	            out.println("<input type=\"text\" name=\"cep\" />");
-	            out.println("<input type=\"submit\" name=\"CEP\" value=\"buscar\"/>");
-	            out.println("</form>");
+	            out.println("</head><body>"); 
 	            
 	            cep = request.getParameter("cep");
 	            res = JavaReqResHttp.newResponse(cep);
