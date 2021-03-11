@@ -1,6 +1,11 @@
 package com.getset;
 
-public class Endereco {
+import java.io.Serializable;
+import java.util.List;
+
+public class Endereco implements Serializable{
+	
+	private static final long serialVersionUID = -1340648172597054288L;
 	
 	private String cep;
 	private String logradouro;
@@ -12,6 +17,17 @@ public class Endereco {
 	private String gia;
 	private String ddd;
 	private String siafi;
+	
+	public Endereco() {
+	}
+	
+	public String getCep() {
+		return cep;
+	}
+	
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
 	
 	public String getLogradouro() {
 		return logradouro;
@@ -83,19 +99,16 @@ public class Endereco {
 	public void setSiafi(String siafi) {
 		this.siafi = siafi;
 	}
-
-	public String getCep() {
-		return cep;
-	}
-	
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
 	
 	@Override
 	public String toString() {
-		return "GetAndSet [cep=" + cep + ", logradouro=" + logradouro + ", complemento=" + complemento + ", bairro="
-				+ bairro + ", localidade=" + localidade + ", uf=" + uf + ", ibge=" + ibge + ", gia=" + gia + ", ddd="
+	return "[cep=" + cep + ", logradouro=" + logradouro + ", complemento=" + complemento + ", bairro="
+			+ bairro + ", localidade=" + localidade + ", uf=" + uf + ", ibge=" + ibge + ", gia=" + gia + ", ddd="
 				+ ddd + ", siafi=" + siafi + "]";
 	}
+	
+	public void setCep(List<Endereco> cepDados) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+	
 }

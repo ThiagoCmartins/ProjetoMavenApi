@@ -1,5 +1,6 @@
 package com.clienthttp;
 
+import java.io.Serializable;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -8,12 +9,12 @@ import java.net.http.HttpResponse;
 import com.getset.Endereco;
 import com.google.gson.Gson;
 
-public class JavaReqResHttp {	
-	
+public class JavaReqResHttp implements Serializable {	
+
+	private static final long serialVersionUID = 474087116905787177L;
 	static String API_URL = "https://viacep.com.br/ws/";
-	static int ok = 200;
 	
-	public static HttpResponse<String> newResponse(String cep) throws Exception {
+	public HttpResponse<String> newResponse(String cep) throws Exception {
 		
 		try {
 			
@@ -28,13 +29,15 @@ public class JavaReqResHttp {
 			
 			HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 			
-			if (response.statusCode() != ok) {
-				throw new RuntimeException("HTTP error code : " + response.statusCode());
-				}
-			
 			System.out.println("-------------------------");
 			System.out.println("client: "+client);
 			System.out.println("-------------------------");
+			System.out.println("request: "+ response);
+			System.out.println("Conexão Status: "+response.statusCode());
+			
+			System.out.println("-------------------------");
+			System.out.println("response body:" + response.body());
+			
 			
 			return response;
 			
@@ -43,14 +46,15 @@ public class JavaReqResHttp {
 	    }
 	}
 	
-	public static Endereco convertGson(String cep) throws Exception{
+	public Endereco convertGson(String cep) throws Exception{
 		
 		Gson gson = new Gson();		
 		HttpResponse<String> res;
+		JavaReqResHttp jrrh = new JavaReqResHttp();
 		
 		try {
 		
-		res = JavaReqResHttp.newResponse(cep);			
+		res = jrrh.newResponse(cep);			
 		Endereco enderecos = gson.fromJson(res.body() , Endereco.class);
 		
 		System.out.println("request: "+ res);

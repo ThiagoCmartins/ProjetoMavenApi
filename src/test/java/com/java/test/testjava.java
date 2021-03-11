@@ -16,7 +16,9 @@ public class testjava {
 	@Test
 	public void primeiroTeste() throws Exception {
 		
-		HttpResponse<String> res = JavaReqResHttp.newResponse(cep);
+		JavaReqResHttp jrrh = new JavaReqResHttp();
+		
+		HttpResponse<String> res = jrrh.newResponse(cep);
 		
 		if(res != null) {
 			assertTrue(true);
@@ -28,7 +30,9 @@ public class testjava {
 	@Test
 	public void segundoTeste() throws Exception {
 		
-		HttpResponse<String> res = JavaReqResHttp.newResponse(cep);
+		JavaReqResHttp jrrh = new JavaReqResHttp();
+		
+		HttpResponse<String> res = jrrh.newResponse(cep);
 		int ok = 200;
 		
 		if(res.statusCode() == ok) {
@@ -41,7 +45,9 @@ public class testjava {
 	@Test
 	public void terceroTeste() throws Exception {
 		
-		HttpResponse<String> res = JavaReqResHttp.newResponse(cep);
+		JavaReqResHttp jrrh = new JavaReqResHttp();
+		
+		HttpResponse<String> res = jrrh.newResponse(cep);
 		
 		if(res.body() != null) {
 			assertTrue(true);
@@ -53,7 +59,9 @@ public class testjava {
 	@Test
 	public void quartoTeste() throws Exception {
 		
-		Endereco gson = JavaReqResHttp.convertGson(cep);
+		JavaReqResHttp jrrh = new JavaReqResHttp();
+		
+		Endereco gson = jrrh.convertGson(cep);
 		
 		if(gson != null) {
 			assertTrue(true);
