@@ -5,6 +5,8 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.getset.Endereco;
 import com.google.gson.Gson;
@@ -38,6 +40,14 @@ public class JavaReqResHttp implements Serializable {
 			System.out.println("-------------------------");
 			System.out.println("response body:" + response.body());
 			
+			System.out.println("request: "+ response);
+			System.out.println("Conexão Status: "+ response.statusCode());
+			
+			System.out.println("-------------------------");
+			System.out.println("response body:"+ response.body());
+			
+			System.out.println("-------------------------");
+			
 			
 			return response;
 			
@@ -46,31 +56,24 @@ public class JavaReqResHttp implements Serializable {
 	    }
 	}
 	
-	public Endereco convertGson(String cep) throws Exception{
+	public List<Endereco> listagem(String cep) throws Exception{
 		
-		Gson gson = new Gson();		
-		HttpResponse<String> res;
+		List<Endereco> lista = new ArrayList<Endereco>();
 		JavaReqResHttp jrrh = new JavaReqResHttp();
-		
-		try {
-		
-		res = jrrh.newResponse(cep);			
-		Endereco enderecos = gson.fromJson(res.body() , Endereco.class);
-		
-		System.out.println("request: "+ res);
-		System.out.println("Conexão Status: "+res.statusCode());
-		
-		System.out.println("-------------------------");
-		System.out.println("response body:"+res.body());
-		
-		System.out.println("-------------------------");
-		System.out.println("enderecos: "+enderecos);
-		        
-		return enderecos;
-		
-		}catch(Exception e) {
-			throw new Exception("ERRO [convertGson]: " + e);
-		}
+		HttpResponse<String> res;
+		Gson gson = new Gson();
 			
+		try {
+			
+			res = jrrh.newResponse(cep);
+			Endereco ed = gson.fromJson(res.body() , Endereco.class);
+			
+			lista.add(ed);
+				 	
+			return lista;
+			
+		}catch(Exception e) {
+			throw new Exception("ERRO [listagem]" + e);
+		}
 	}
 }

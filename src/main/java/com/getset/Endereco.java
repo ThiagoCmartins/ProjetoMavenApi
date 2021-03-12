@@ -100,12 +100,12 @@ public class Endereco implements Serializable{
 		this.siafi = siafi;
 	}
 	
-	@Override
-	public String toString() {
-	return "[cep=" + cep + ", logradouro=" + logradouro + ", complemento=" + complemento + ", bairro="
-			+ bairro + ", localidade=" + localidade + ", uf=" + uf + ", ibge=" + ibge + ", gia=" + gia + ", ddd="
-				+ ddd + ", siafi=" + siafi + "]";
-	}
+	//@Override
+	//public String toString() {
+	//return "[cep=" + cep + ", logradouro=" + logradouro + ", complemento=" + complemento + ", bairro="
+	//		+ bairro + ", localidade=" + localidade + ", uf=" + uf + ", ibge=" + ibge + ", gia=" + gia + ", ddd="
+	//			+ ddd + ", siafi=" + siafi + "]";
+	//}
 	
 	public void setCep(List<Endereco> cepDados) {
         throw new UnsupportedOperationException("Not supported yet.");

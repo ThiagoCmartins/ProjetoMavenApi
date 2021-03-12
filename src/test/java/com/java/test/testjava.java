@@ -3,6 +3,8 @@ package com.java.test;
 import static org.junit.Assert.assertTrue;
 
 import java.net.http.HttpResponse;
+import java.util.List;
+
 import org.junit.Test;
 
 import com.clienthttp.JavaReqResHttp;
@@ -60,8 +62,9 @@ public class testjava {
 	public void quartoTeste() throws Exception {
 		
 		JavaReqResHttp jrrh = new JavaReqResHttp();
+		List<Endereco> gson;
 		
-		Endereco gson = jrrh.convertGson(cep);
+		gson = jrrh.listagem(cep);
 		
 		if(gson != null) {
 			assertTrue(true);
