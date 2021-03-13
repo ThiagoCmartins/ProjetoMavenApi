@@ -12,6 +12,12 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8 mb-3" style="margin: auto;">
+				<br>
+				<div class="alert-success text-center espaco">Tela de Mensagens</div>
+				<div class="alert-danger text-center espaco">
+					<c:out value="${mensagem}" />
+				</div>
+				<br>
 				<div class="alert-success text-center espaco">Digite um CEP</div>
 				<form name="Ceps" method="post" action="controller">
 					<div class="row">
@@ -23,7 +29,7 @@
 					<div class="row">
 						<div class="col-md-12 mb-5">
 							<input type="submit" name="CEP"
-								class="form-control btn btn-primary" value="buscar">
+								class="form-control btn-success btn-primary" value="buscar">
 						</div>
 					</div>
 				</form>
@@ -58,9 +64,6 @@
 						</c:forEach>
 					</tbody>
 				</table>
-				<div class="alert-success text-center espaco">Tela deMensagens</div>
-				<div class="alert-danger text-center espaco"><c:out value="${mensagem}" />
-				</div>
 			</div>
 		</div>
 	</div>

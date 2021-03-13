@@ -58,7 +58,7 @@ public class controllerServer extends HttpServlet {
 						request.getRequestDispatcher("index.jsp").forward(request, response);
 					}
 				} else {
-					request.setAttribute("mensagem", "Erro: [campo CEP Vazio]");
+					request.setAttribute("mensagem", "Erro: [Campo CEP Vazio]");
 					request.getRequestDispatcher("index.jsp").forward(request, response);
 				}
 
