@@ -16,7 +16,7 @@ public class testjava {
 	static String cep = "01001000";
 	
 	@Test
-	public void primeiroTeste() throws Exception {
+	public void TestRes() throws Exception {
 		
 		JavaReqResHttp jrrh = new JavaReqResHttp();
 		
@@ -30,7 +30,7 @@ public class testjava {
 	}
 	
 	@Test
-	public void segundoTeste() throws Exception {
+	public void TestStatusCode() throws Exception {
 		
 		JavaReqResHttp jrrh = new JavaReqResHttp();
 		
@@ -45,13 +45,13 @@ public class testjava {
 	}
 	
 	@Test
-	public void terceroTeste() throws Exception {
+	public void TestResp() throws Exception {
 		
 		JavaReqResHttp jrrh = new JavaReqResHttp();
 		
-		HttpResponse<String> res = jrrh.newResponse(cep);
+		HttpResponse<String> resp = jrrh.newResponse(cep);
 		
-		if(res.body() != null) {
+		if(resp.body() != null) {
 			assertTrue(true);
 		}else {
 			assertTrue(false);
@@ -59,14 +59,14 @@ public class testjava {
 	}
 	
 	@Test
-	public void quartoTeste() throws Exception {
+	public void TesteList() throws Exception {
 		
 		JavaReqResHttp jrrh = new JavaReqResHttp();
-		List<Endereco> gson;
+		List<Endereco> list;
 		
-		gson = jrrh.listagem(cep);
+		list = jrrh.listagem(cep);
 		
-		if(gson != null) {
+		if(list != null) {
 			assertTrue(true);
 		}else {
 			assertTrue(false);

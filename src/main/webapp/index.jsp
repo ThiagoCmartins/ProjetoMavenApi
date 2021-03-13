@@ -16,16 +16,18 @@
 				<form name="Ceps" method="post" action="controller">
 					<div class="row">
 						<div class="col-md-12 mb-5">
-							<label>CEP</label> <input type="text" class="form-control"name="cep">
+							<label>CEP</label> <input type="text" class="form-control"
+								name="cep">
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-12 mb-5">
-							<input type="submit" name="CEP"class="form-control btn btn-primary" value="buscar">
+							<input type="submit" name="CEP"
+								class="form-control btn btn-primary" value="buscar">
 						</div>
 					</div>
 				</form>
-				
+
 				<table class="table table-bordered table-striped text-center">
 					<thead>
 						<tr>
@@ -42,20 +44,23 @@
 					<tbody>
 						<c:forEach var="cepDados" items="${cepDados}">
 							<form name="lista_dados" method="post" action="controller">
-							<tr>
-								<td class="align-middle text-justify">${cepDados.cep}</td>
-								<td class="align-middle text-justify">${cepDados.logradouro}</td>
-								<td class="align-middle text-justify">${cepDados.complemento}</td>
-								<td class="align-middle text-justify">${cepDados.localidade}</td>
-								<td class="align-middle text-justify">${cepDados.uf}</td>
-								<td class="align-middle text-justify">${cepDados.ibge}</td>
-								<td class="align-middle text-justify">${cepDados.ddd}</td>
-								<td class="align-middle text-justify">${cepDados.siafi}</td>
-							</tr>
+								<tr>
+									<td class="align-middle text-justify">${cepDados.cep}</td>
+									<td class="align-middle text-justify">${cepDados.logradouro}</td>
+									<td class="align-middle text-justify">${cepDados.complemento}</td>
+									<td class="align-middle text-justify">${cepDados.localidade}</td>
+									<td class="align-middle text-justify">${cepDados.uf}</td>
+									<td class="align-middle text-justify">${cepDados.ibge}</td>
+									<td class="align-middle text-justify">${cepDados.ddd}</td>
+									<td class="align-middle text-justify">${cepDados.siafi}</td>
+								</tr>
 							</form>
 						</c:forEach>
 					</tbody>
-				</table>					
+				</table>
+				<div class="alert-success text-center espaco">Tela deMensagens</div>
+				<div class="alert-danger text-center espaco"><c:out value="${mensagem}" />
+				</div>
 			</div>
 		</div>
 	</div>
