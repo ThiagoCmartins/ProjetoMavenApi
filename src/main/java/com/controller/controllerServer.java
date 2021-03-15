@@ -43,11 +43,12 @@ public class controllerServer extends HttpServlet {
 		try {
 			JavaReqResHttp jrrh = new JavaReqResHttp();
 			try {
+				cep = request.getParameter("cep");
+				if (cep.trim().length() != 0) {
 
-				if (request.getParameter("cep").trim().length() != 0) {
-
-					validar = (Integer.parseInt(request.getParameter("cep")));
-					cep = request.getParameter("cep");
+					
+					validar = (Integer.parseInt(cep));
+					
 					cepDados = jrrh.listagem(cep);
 
 					if (cepDados.isEmpty()) {
@@ -61,9 +62,9 @@ public class controllerServer extends HttpServlet {
 					request.setAttribute("mensagem", "Erro: [Campo CEP Vazio]");
 					request.getRequestDispatcher("index.jsp").forward(request, response);
 				}
-
-			} catch (NumberFormatException validar) {
-				request.setAttribute("mensagem", "Erro: [Didite apenas números]");
+				
+			} catch (NumberFormatException v) {
+				request.setAttribute("mensagem", "Erro: [Didite apenas números] >> [" + v +"]");
 				request.getRequestDispatcher("index.jsp").forward(request, response);
 			}
 		} catch (Exception e) {

@@ -13,7 +13,8 @@
 		<div class="row">
 			<div class="col-md-8 mb-3" style="margin: auto;">
 				<br>
-				<div class="alert-success text-center espaco">Tela de Mensagens</div>
+				<div class="alert-success text-center espaco">Tela de
+					Mensagens</div>
 				<div class="alert-danger text-center espaco">
 					<c:out value="${mensagem}" />
 				</div>
@@ -23,7 +24,7 @@
 					<div class="row">
 						<div class="col-md-12 mb-5">
 							<label>CEP</label> <input type="text" class="form-control"
-								name="cep">
+								name="cep" maxlength="8" size="8">
 						</div>
 					</div>
 					<div class="row">

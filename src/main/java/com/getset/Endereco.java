@@ -17,6 +17,7 @@ public class Endereco implements Serializable {
 	private String gia;
 	private String ddd;
 	private String siafi;
+	private String erro;
 
 	public Endereco() {
 	}
@@ -100,16 +101,23 @@ public class Endereco implements Serializable {
 	public void setSiafi(String siafi) {
 		this.siafi = siafi;
 	}
+	
+	public String getErro() {
+		return erro;
+	}
+	
+	public void setErro(String erro) {
+		this.erro = erro;
+	}
 
 	@Override
 	public String toString() {
 		return "[cep=" + cep + ", logradouro=" + logradouro + ", complemento=" + complemento + ", bairro=" + bairro
 				+ ", localidade=" + localidade + ", uf=" + uf + ", ibge=" + ibge + ", gia=" + gia + ", ddd=" + ddd
-				+ ", siafi=" + siafi + "]";
+				+ ", siafi=" + siafi + ", erro=" + erro + "]";
 	}
 
 	public void setCep(List<Endereco> cepDados) {
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
-
 }
