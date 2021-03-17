@@ -73,4 +73,17 @@ public class testjava {
 		}		
 	}
 	
+	@Test
+	public void TesteGson() throws Exception {
+		
+		JavaReqResHttp jrrh = new JavaReqResHttp();
+		Endereco gson = jrrh.convertGson(cep);
+		
+		if (gson != null) {
+			assertTrue(true);
+		}else {
+			assertTrue(false);
+		}
+	}
+	
 }

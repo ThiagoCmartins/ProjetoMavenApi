@@ -42,33 +42,38 @@ public class controllerServer extends HttpServlet {
 
 		try {
 			JavaReqResHttp jrrh = new JavaReqResHttp();
+			cep = request.getParameter("cep");
+			
 			try {
-				cep = request.getParameter("cep");
 				if (cep.trim().length() != 0) {
-
-					
+		
 					validar = (Integer.parseInt(cep));
-					
 					cepDados = jrrh.listagem(cep);
 
-					if (cepDados.isEmpty()) {
-						request.setAttribute("mensagem", "Erro 400: [Cep não encontrado]");
-						request.getRequestDispatcher("index.jsp").forward(request, response);
-					} else {
+					if (!cepDados.isEmpty()) {
+						
+						request.setAttribute("sucesso", "[Sucesso ao Buscar]");
 						request.setAttribute("cepDados", cepDados);
+						request.getRequestDispatcher("index.jsp").forward(request, response);
+						
+					} else {
+						request.setAttribute("erro", "[Cep não encontrado]");
 						request.getRequestDispatcher("index.jsp").forward(request, response);
 					}
 				} else {
-					request.setAttribute("mensagem", "Erro: [Campo CEP Vazio]");
+					request.setAttribute("erro", "[Digite Um CEP]");
 					request.getRequestDispatcher("index.jsp").forward(request, response);
 				}
 				
 			} catch (NumberFormatException v) {
-				request.setAttribute("mensagem", "Erro: [Didite apenas números] >> [" + v +"]");
+				v.printStackTrace();
+				request.setAttribute("erro", "[Didite apenas números]");
 				request.getRequestDispatcher("index.jsp").forward(request, response);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			request.setAttribute("erro", "[Tente Novamente Mais Tarde]");
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 	}
 }

@@ -1,7 +1,6 @@
 package com.getset;
 
 import java.io.Serializable;
-import java.util.List;
 
 public class Endereco implements Serializable {
 
@@ -115,9 +114,5 @@ public class Endereco implements Serializable {
 		return "[cep=" + cep + ", logradouro=" + logradouro + ", complemento=" + complemento + ", bairro=" + bairro
 				+ ", localidade=" + localidade + ", uf=" + uf + ", ibge=" + ibge + ", gia=" + gia + ", ddd=" + ddd
 				+ ", siafi=" + siafi + ", erro=" + erro + "]";
-	}
-
-	public void setCep(List<Endereco> cepDados) {
-		throw new UnsupportedOperationException("Not supported yet.");
 	}
 }

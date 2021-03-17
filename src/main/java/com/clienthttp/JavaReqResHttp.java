@@ -17,7 +17,6 @@ public class JavaReqResHttp implements Serializable {
 
 	static String API_URL = "https://viacep.com.br/ws/";
 	int ok = 200;
-	String erro = "true";
 
 	public List<Endereco> listagem(String cep) throws Exception {
 
@@ -26,16 +25,15 @@ public class JavaReqResHttp implements Serializable {
 		Endereco endereco = new Endereco();
 
 		try {
-
 			endereco = jrrh.convertGson(cep);
-			
+
 			if (endereco.getCep() != null && endereco.getErro() == null) {
-				
+
 				lista.add(endereco);
 				return lista;
 
-			} else {		
-				return lista;	
+			} else {
+				return lista;
 			}
 
 		} catch (Exception e) {
@@ -44,8 +42,8 @@ public class JavaReqResHttp implements Serializable {
 	}
 
 	public Endereco convertGson(String cep) throws Exception {
-		
-		Endereco ed = new Endereco();  
+
+		Endereco ed = new Endereco();
 		JavaReqResHttp jrrh = new JavaReqResHttp();
 		HttpResponse<String> response;
 		Gson gson = new Gson();
@@ -55,15 +53,15 @@ public class JavaReqResHttp implements Serializable {
 			response = jrrh.newResponse(cep);
 
 			if (response.statusCode() == ok) {
-				
+
 				Endereco endereco = gson.fromJson(response.body(), Endereco.class);
 				System.out.println("To String 200:" + endereco);
 				System.out.println("-------------------------");
-				
+
 				return endereco;
 
 			} else {
-				
+
 				System.out.println("To String 400:" + ed);
 				System.out.println("-------------------------");
 				return ed;

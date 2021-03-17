@@ -12,40 +12,35 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8 mb-3" style="margin: auto;">
-				<br>
-				<div class="alert-success text-center espaco">Tela de
-					Mensagens</div>
-				<div class="alert-danger text-center espaco">
-					<c:out value="${mensagem}" />
-				</div>
-				<br>
-				<div class="alert-success text-center espaco">Digite um CEP</div>
+
+				<div class="alert-success text-center espaco">Digite um CEP</div>		
 				<form name="Ceps" method="post" action="controller">
 					<div class="row">
 						<div class="col-md-12 mb-5">
-							<label>CEP</label> <input type="text" class="form-control"
-								name="cep" maxlength="8" size="8">
+							<input type="text" class="form-control" name="cep" maxlength="8" size="8">
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-12 mb-5">
-							<input type="submit" name="CEP"
-								class="form-control btn-success btn-primary" value="buscar">
+							<input type="submit" name="CEP" class="form-control btn-success btn-primary" value="buscar">
 						</div>
 					</div>
 				</form>
-
+				
+				<div class="alert-success text-center espaco"><c:out value = "${sucesso}"/></div>
+				<div class="alert-danger text-center espaco"><c:out value="${erro}"/></div>
+				
 				<table class="table table-bordered table-striped text-center">
 					<thead>
 						<tr>
-							<th class="text-justify">cep</th>
-							<th class="text-justify">logradouro</th>
-							<th class="text-justify">complemento</th>
-							<th class="text-justify">localidade</th>
-							<th class="text-justify">uf</th>
-							<th class="text-justify">ibge</th>
-							<th class="text-justify">ddd</th>
-							<th class="text-justify">siafi</th>
+							<th class="text-justify">Cep</th>
+							<th class="text-justify">Logradouro</th>
+							<th class="text-justify">Complemento</th>
+							<th class="text-justify">Localidade</th>
+							<th class="text-justify">UF</th>
+							<th class="text-justify">IBGE</th>
+							<th class="text-justify">DDD</th>
+							<th class="text-justify">SIAFI</th>
 						</tr>
 					</thead>
 					<tbody>
